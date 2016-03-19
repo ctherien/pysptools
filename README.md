@@ -1,6 +1,11 @@
 # pysptools
 Hyperspectral library for Python
 
+Important note
+==============
+
+Actually, installing pysptools in GitHub IS A WORK IN PROGRESS. Until it's finished, use the pypi version only.
+
 Presentation
 ============
 

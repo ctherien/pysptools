@@ -104,6 +104,17 @@ Following examples use the IPython Notebook:
    * Pine Creek `example 3 <nbex_pine_creek3.html>`_
    * Support Vector Classification `example <nbex_pine_creek4.html>`_
 
+Regarding Numerical Stability
+=============================
+
+After running many tests we can observe that most of the algorithms in this library are numerically stable. But not all! Problems are with FCLS and SVC. I didn't investigate in deep but here I present some observations and how to work around the problem.
+
+These problems are not critical and with a good Python configuration, thanks to Anaconda, we can pass over. With a MKL based Python distribution, if we run the Pine Creek example 2 many times, we observe a cyclic output from FCLS. And from one cycle to another (it exist 2 cycles for example 2), the rendering of the abundances maps is not the same. If we run the same example with a openBLAS based Python distribution the cycling disappear and the abundances maps stay the same at each run. I observed something similar with SVC but it's more complex to analyses.
+
+The solution is to avoid MKL and use openBLAS when running FCLS or SVC. This can be done easily with the new Anaconda version 2.5 (older public Anaconda versions are openBLAS only). To setup your environment to openBLAS see the article of Dr. Ilan Schnell on the Anaconda developer blog: 
+`anaconda-25-release-now-mkl-optimizations <https://www.continuum.io/blog/developer-blog/anaconda-25-release-now-mkl-optimizations/>`_
+
+Except for these two algorithms, MKL can be used without any problem.
 
 Documentation
 =============

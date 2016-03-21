@@ -1,0 +1,44 @@
+.. automodule:: pysptools.noise
+
+Denoising 
+**********
+
+This module supports these filter algorithms:
+
+* `Whiten`_
+* `Minimum Noise Fraction (MNF) Transformation`_
+* `Savitzky Golay`_
+
+
+
+.. seealso:: See the file :download:`test_dnoise.py<../../pysptools/tests/test_dnoise.py>` for an example.
+
+
+Whiten
+=======
+
+Function
+--------
+.. autofunction:: pysptools.noise.dnoise.whiten
+
+------------------------------
+
+Class
+------
+.. autoclass:: pysptools.noise.Whiten
+    :members:
+
+
+Minimum Noise Fraction (MNF) Transformation
+===========================================
+
+.. autoclass:: pysptools.noise.MNF
+    :members:
+
+
+Savitzky Golay
+==============
+
+.. autoclass:: pysptools.noise.SavitzkyGolay
+    :members:
+

@@ -1,0 +1,85 @@
+.. automodule:: pysptools.eea
+
+Endmembers Extraction Algorithms (EEA)
+*************************************** 
+
+This module Supports follwoing endmembers extraction algorithms:
+
+* `Automatic Target Generation Process (ATGP)`_
+* `Fast Iterative Pixel Purity Index (FIPPI)`_
+* `N-FINDR`_
+* `Pixel Purity Index (PPI)`_
+
+.. seealso:: See the file :download:`test_eea.py<../../pysptools/tests/test_eea.py>` for an example.
+
+
+.. note:: Regarding the *normalize* parameter, if you have data that are out of bound in your HSI cube, the use of *normalize* is not recommended. You must clean up the data before using this parameter.
+
+
+Automatic Target Generation Process (ATGP)
+===========================================
+
+Function
+--------
+
+.. autofunction:: pysptools.eea.eea.ATGP
+
+------------------------------
+
+Class
+------
+
+.. autoclass:: pysptools.eea.ATGP
+    :members:
+
+
+Fast Iterative Pixel Purity Index (FIPPI)
+===========================================
+
+Function
+--------
+
+.. autofunction:: pysptools.eea.eea.FIPPI
+
+------------------------------
+
+Class
+------
+
+.. autoclass:: pysptools.eea.FIPPI
+    :members:
+
+
+N-FINDR
+========
+
+Function
+--------
+
+.. autofunction:: pysptools.eea.eea.NFINDR
+
+------------------------------
+
+Class
+------
+
+.. autoclass:: pysptools.eea.NFINDR
+    :members:
+
+
+Pixel Purity Index (PPI)
+=========================
+
+Function
+--------
+
+.. autofunction:: pysptools.eea.eea.PPI
+
+------------------------------
+
+Class
+------
+
+.. autoclass:: pysptools.eea.PPI
+    :members:
+

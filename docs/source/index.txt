@@ -1,0 +1,136 @@
+﻿.. PySptools documentation master file, created by
+   sphinx-quickstart on Sun Sep 29 09:27:46 2013.
+   You can adapt this file completely to your liking, but it should at least
+   contain the root `toctree` directive.
+
+.. meta::
+	:description: Python tools for hyperspectral imaging
+	:keywords: python, telops, hyperspectral imaging, signal processing, library, endmembers, unmixing, pysptools, sam, sid, atgp, N-FINDR, NFINDR, spectroscopy, target detection, georessources, geoimaging, chemical imaging, pharmaceutical, pharma, minerals, spectral, remote sensing, hyperspectral drill core imaging
+
+Welcome to the PySptools Documentation
+**************************************
+
+Tools for hyperspectral imaging ::
+
+	Documentation at 2016-03-11.
+
+.. figure:: ./pic/pic_burner1.png
+   :scale: 100 %
+   :align: center
+   :alt: stacked abundance maps
+
+Hyperspectral imaging is used to **visualize chemistry**, the spatial relation between chemicals and the proportion of them. PySptools is a python module that implements spectral and hyperspectral algorithms. Specializations of the library are the endmembers extraction, unmixing process, supervised classification, target detection, noise reduction, convex hull removal and features extraction at spectrum level. The library is designed to be easy to use and almost all functionality has a plot function to save you time with the data analysis process. The actual sources of the algorithms are the Matlab Hyperspectral Toolbox of Isaac Gerg, the pwctools of M. A. Little, the Endmember Induction Algorithms toolbox (EIA), the HySime Matlab module of José Bioucas-Dias and José Nascimento and science articles. You can download PySptools from the PySptools
+Project Page hosted by Sourceforge.net or from the pypi packages repository.
+
+`Project web site <http://ctherien.weebly.com/>`_
+
+What's New : version 0.13.3 (beta) and version 0.13.4 (beta)
+=============================================================
+
+Versions 0.13.3 and 0.13.4 are the same: no google analytic inside the doc and the version string
+is fixed for the most recent.
+
+The library is now compatible with Python 2.7 and 3.x. Otherwise, a few fixes to mute some warnings. In details:
+
+* Compatibility for Python 2.7 and 3.x was improved. The same archive run on both.
+
+* A new parameter 'columns' was added to the plot and display methods for the abundances_map module
+  classes. When you use this parameter, all the abundance maps are rendered in one file for the plot
+  method and in one image for the display method. 'columns' control the number of columns.
+
+* A new parameter 'mask' was added to the map method for the abundances_map module classes.
+  The mask is a binary one. Only the selected pixels by the mask are unmixed. The motivation is to
+  improve performance when we work in a region of the hyperspectral cube.
+
+See the :doc:`release notes<release_notes>` section.
+
+Examples
+========
+
+* A simple comparaison between ATGP and NFINDR.
+
+   .. figure:: ./pic/pic_picture4.png
+      :scale: 100 %
+      :align: center
+      :alt: detection map
+
+      :doc:`NFINDR and ATGP<example1>`
+
+* Methanol gas synthetic images made by unmixing. The data used for the demonstration is acquired with a `Telops Hyper-Cam <http://www.telops.com/>`_ instrument.
+
+   .. figure:: ./pic/pic_burner2.png
+      :scale: 100 %
+      :align: center
+      :alt: Telops image of methanol gas escaped form a burner
+
+      :doc:`Methanol gas<example2>`
+
+* Quartz classification of a drill core datacube. The data used for the demonstration is acquired with a `Telops Hyper-Cam <http://www.telops.com/>`_ instrument.
+
+   .. figure:: ./hem/hem_hematite.png
+      :scale: 100 %
+      :align: center
+      :alt: Telops image of a drill core
+
+      :doc:`Hematite drill core <example3>`
+
+* Smokestack effluents analysis. The data used for the demonstration is acquired with a `Telops Hyper-Cam <http://www.telops.com/>`_ instrument.
+
+   .. figure:: ./smk/smk_sm1.png
+      :scale: 100 %
+      :align: center
+      :alt: Telops image of a smokestack
+
+      :doc:`Smokestack <example4>`
+
+* Some examples of convex hull removal and features extraction.
+
+   .. figure:: ./pic/pic_picture5.png
+      :scale: 100 %
+      :align: center
+      :alt: Convex hull plot
+
+      :doc:`Convex hull <example5>`
+
+Following examples use the IPython Notebook:
++++++++++++++++++++++++++++++++++++++++++++++
+
+   * Methanol gas `example <nbex_methanol_burner.html>`_
+   * Hematite drill core `example <nbex_hematite.html>`_
+   * Convex hull `example <nbex_convexhull.html>`_
+   * Pine Creek `example 1 <nbex_pine_creek1.html>`_
+   * Pine Creek `example 2 <nbex_pine_creek2.html>`_
+   * Pine Creek `example 3 <nbex_pine_creek3.html>`_
+   * Support Vector Classification `example <nbex_pine_creek4.html>`_
+
+
+Documentation
+=============
+
+.. toctree::
+   :maxdepth: 2
+
+   introduction
+   installation
+   examples_front
+   abundance_maps
+   classification
+   detection
+   distance
+   eea
+   material_count
+   noise
+   sigproc
+   spectro
+   util
+   glossary
+   release_notes
+   links
+
+
+Indices and tables
+==================
+
+* :ref:`genindex`
+* :ref:`modindex`
+* :ref:`search`

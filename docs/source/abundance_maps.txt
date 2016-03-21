@@ -1,0 +1,58 @@
+.. automodule:: pysptools.abundance_maps
+
+Abundance maps
+***************
+
+Following algorithms are available to generate and plot abundance maps. Each of these algorithms come in two flavors, as functions or as classes.
+
+
+* `Unconstrained Least Squares (UCLS)`_ 
+* `Non-negative Constrained Least Squares (NNLS)`_ 
+* `Fully Constrained Least Squares (FCLS)`_
+
+.. seealso:: See the file :download:`test_eea.py<../../pysptools/tests/test_eea.py>` for an example.
+
+
+Unconstrained Least Squares (UCLS)
+====================================
+
+Function
+--------
+.. autofunction:: pysptools.abundance_maps.amaps.UCLS
+
+------------------------------
+
+Class
+------
+.. autoclass:: pysptools.abundance_maps.UCLS
+    :members:
+
+
+Non-negative Constrained Least Squares (NNLS)
+=============================================
+
+Function
+--------
+.. autofunction:: pysptools.abundance_maps.amaps.NNLS
+
+------------------------------
+
+Class
+------
+.. autoclass:: pysptools.abundance_maps.NNLS
+    :members:
+
+
+Fully Constrained Least Squares (FCLS)
+========================================
+
+Function
+--------
+.. autofunction:: pysptools.abundance_maps.amaps.FCLS
+
+------------------------------
+
+Class
+------
+.. autoclass:: pysptools.abundance_maps.FCLS
+    :members:

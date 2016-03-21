@@ -1,0 +1,58 @@
+Examples
+********
+
+Comparaison between ATGP and NFINDR
+===================================
+
+A simple comparaison between ATGP and NFINDR.
+
+   .. figure:: ./pic/pic_picture4.png
+      :scale: 100 %
+      :align: center
+      :alt: detection map
+
+      :doc:`NFINDR and ATGP<example1>`
+
+Unmixing
+========
+Methanol gas synthetic images made by unmixing. The data used for the demonstration is acquired with a `Telops Hyper-Cam <http://www.telops.com/>`_ instrument.
+
+   .. figure:: ./pic/pic_burner2.png
+      :scale: 100 %
+      :align: center
+      :alt: Telops image of methanol gas escaped form a burner
+
+      :doc:`Methanol gas<example2>`
+
+Quartz Classification
+=====================
+Quartz classification of a drill core datacube. The data used for the demonstration is acquired with a `Telops Hyper-Cam <http://www.telops.com/>`_ instrument.
+
+   .. figure:: ./hem/hem_hematite.png
+      :scale: 100 %
+      :align: center
+      :alt: Telops image of a drill core
+
+      :doc:`Hematite drill core <example3>`
+
+Smokestack Effluents Analysis
+=============================
+Smokestack effluents analysis. The data used for the demonstration is acquired with a `Telops Hyper-Cam <http://www.telops.com/>`_ instrument.
+
+   .. figure:: ./smk/smk_sm1.png
+      :scale: 100 %
+      :align: center
+      :alt: Telops image of a smokestack
+
+      :doc:`Smokestack <example4>`
+
+Convex Hull Removal And Features Extraction
+===========================================
+* Some examples of convex hull removal and features extraction.
+
+   .. figure:: ./pic/pic_picture5.png
+      :scale: 100 %
+      :align: center
+      :alt: Convex hull plot
+
+      :doc:`Convex hull <example5>`

@@ -24,23 +24,24 @@ Project Page hosted by Sourceforge.net or from the pypi packages repository.
 
 `Project web site <http://ctherien.weebly.com/>`_
 
-What's New : version 0.13.3 (beta) and version 0.13.4 (beta)
+What's New : version 0.13.5 (beta)
 =============================================================
 
-Versions 0.13.3 and 0.13.4 are the same: no google analytic inside the doc and the version string
-is fixed for the most recent.
+It's mainly a maintenance version with a few fixes. Following is a list of the new features.
 
-The library is now compatible with Python 2.7 and 3.x. Otherwise, a few fixes to mute some warnings. In details:
+* A __str__ method is added to the abundance_maps, classification, detection and eea modules classes.
 
-* Compatibility for Python 2.7 and 3.x was improved. The same archive run on both.
-
-* A new parameter 'columns' was added to the plot and display methods for the abundances_map module
-  classes. When you use this parameter, all the abundance maps are rendered in one file for the plot
-  method and in one image for the display method. 'columns' control the number of columns.
-
-* A new parameter 'mask' was added to the map method for the abundances_map module classes.
-  The mask is a binary one. Only the selected pixels by the mask are unmixed. The motivation is to
+* A new parameter 'mask' is added to the classify method of the classification module classes. And the same
+  to the extract method of the eea module classes. For NFINDR and ATGP the code is reorganized accordingly.
+  The mask is a binary one. Only the selected pixels by the mask are used. The motivation is to
   improve performance when we work in a region of the hyperspectral cube.
+
+* To the methods plot_components and display_components of the MNF class, a colorMap parameter is added and the interpolation is now set to 'none' by default.
+
+* The cython version for the NFINDR algorithm is removed from the pysptools development path.
+  It is now in is own project. Follow the link `eealgo <https://github.com/ctherien/eealgo/>`_
+
+* Clean up of the DATA file. The DATA fike contains the data to run the tests suite. The new version is put on the sourceforge site. Follow the link `data file <http://sourceforge.net/projects/pysptools/files/>`_
 
 See the :doc:`release notes<release_notes>` section.
 

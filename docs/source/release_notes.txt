@@ -1,6 +1,25 @@
 Release notes
 *************
 
+Version 0.13.5 (beta)
+=====================
+
+It's mainly a maintenance version with a few fixes. Following is a list of the new features.
+
+* A __str__ method is added to the abundance_maps, classification, detection and eea modules classes.
+
+* A new parameter 'mask' is added to the classify method of the classification module classes. And the same
+  to the extract method of the eea module classes. For NFINDR and ATGP the code is reorganized accordingly.
+  The mask is a binary one. Only the selected pixels by the mask are used. The motivation is to
+  improve performance when we work in a region of the hyperspectral cube.
+
+* To the methods plot_components and display_components of the MNF class, a colorMap parameter is added and the interpolation is now set to 'none' by default.
+
+* The cython version for the NFINDR algorithm is removed from the pysptools development path.
+  It is now in is own project. Follow the link `eealgo <https://github.com/ctherien/eealgo/>`_
+
+* Clean up of the DATA file. The DATA fike contains the data to run the tests suite. The new version is put on the sourceforge site. Follow the link `data file <http://sourceforge.net/projects/pysptools/files/>`_
+
 Version 0.13.3 (beta) and version 0.13.4 (beta)
 ===============================================
 

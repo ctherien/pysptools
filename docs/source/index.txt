@@ -1,0 +1,148 @@
+﻿.. PySptools documentation master file, created by
+   sphinx-quickstart on Sun Sep 29 09:27:46 2013.
+   You can adapt this file completely to your liking, but it should at least
+   contain the root `toctree` directive.
+
+.. meta::
+	:description: Python tools for hyperspectral imaging
+	:keywords: python, telops, hyperspectral imaging, signal processing, library, endmembers, unmixing, pysptools, sam, sid, atgp, N-FINDR, NFINDR, spectroscopy, target detection, georessources, geoimaging, chemical imaging, pharmaceutical, pharma, minerals, spectral, remote sensing, hyperspectral drill core imaging
+
+Welcome to the PySptools Documentation
+**************************************
+
+Tools for hyperspectral imaging ::
+
+	Documentation at 2016-03-11.
+
+.. figure:: ./pic/pic_burner1.png
+   :scale: 100 %
+   :align: center
+   :alt: stacked abundance maps
+
+Hyperspectral imaging is used to **visualize chemistry**, the spatial relation between chemicals and the proportion of them. PySptools is a python module that implements spectral and hyperspectral algorithms. Specializations of the library are the endmembers extraction, unmixing process, supervised classification, target detection, noise reduction, convex hull removal and features extraction at spectrum level. The library is designed to be easy to use and almost all functionality has a plot function to save you time with the data analysis process. The actual sources of the algorithms are the Matlab Hyperspectral Toolbox of Isaac Gerg, the pwctools of M. A. Little, the Endmember Induction Algorithms toolbox (EIA), the HySime Matlab module of José Bioucas-Dias and José Nascimento and science articles. You can download PySptools from the PySptools
+Project Page hosted by Sourceforge.net or from the pypi packages repository.
+
+`Project web site <http://ctherien.weebly.com/>`_
+
+What's New : version 0.13.5 (beta)
+=============================================================
+
+It's mainly a maintenance version with a few fixes. Following is a list of the new features.
+
+* A __str__ method is added to the abundance_maps, classification, detection and eea modules classes.
+
+* A new parameter 'mask' is added to the classify method of the classification module classes. And the same
+  to the extract method of the eea module classes. For NFINDR and ATGP the code is reorganized accordingly.
+  The mask is a binary one. Only the selected pixels by the mask are used. The motivation is to
+  improve performance when we work in a region of the hyperspectral cube.
+
+* To the methods plot_components and display_components of the MNF class, a colorMap parameter is added and the interpolation is now set to 'none' by default.
+
+* The cython version for the NFINDR algorithm is removed from the pysptools development path.
+  It is now in is own project. Follow the link `eealgo <https://github.com/ctherien/eealgo/>`_
+
+* Clean up of the DATA file. The DATA fike contains the data to run the tests suite. The new version is put on the sourceforge site. Follow the link `data file <http://sourceforge.net/projects/pysptools/files/>`_
+
+See the :doc:`release notes<release_notes>` section.
+
+Examples
+========
+
+* A simple comparaison between ATGP and NFINDR.
+
+   .. figure:: ./pic/pic_picture4.png
+      :scale: 100 %
+      :align: center
+      :alt: detection map
+
+      :doc:`NFINDR and ATGP<example1>`
+
+* Methanol gas synthetic images made by unmixing. The data used for the demonstration is acquired with a `Telops Hyper-Cam <http://www.telops.com/>`_ instrument.
+
+   .. figure:: ./pic/pic_burner2.png
+      :scale: 100 %
+      :align: center
+      :alt: Telops image of methanol gas escaped form a burner
+
+      :doc:`Methanol gas<example2>`
+
+* Quartz classification of a drill core datacube. The data used for the demonstration is acquired with a `Telops Hyper-Cam <http://www.telops.com/>`_ instrument.
+
+   .. figure:: ./hem/hem_hematite.png
+      :scale: 100 %
+      :align: center
+      :alt: Telops image of a drill core
+
+      :doc:`Hematite drill core <example3>`
+
+* Smokestack effluents analysis. The data used for the demonstration is acquired with a `Telops Hyper-Cam <http://www.telops.com/>`_ instrument.
+
+   .. figure:: ./smk/smk_sm1.png
+      :scale: 100 %
+      :align: center
+      :alt: Telops image of a smokestack
+
+      :doc:`Smokestack <example4>`
+
+* Some examples of convex hull removal and features extraction.
+
+   .. figure:: ./pic/pic_picture5.png
+      :scale: 100 %
+      :align: center
+      :alt: Convex hull plot
+
+      :doc:`Convex hull <example5>`
+
+Following examples use the IPython Notebook:
++++++++++++++++++++++++++++++++++++++++++++++
+
+   * Methanol gas `example <nbex_methanol_burner.html>`_
+   * Hematite drill core `example <nbex_hematite.html>`_
+   * Convex hull `example <nbex_convexhull.html>`_
+   * Pine Creek `example 1 <nbex_pine_creek1.html>`_
+   * Pine Creek `example 2 <nbex_pine_creek2.html>`_
+   * Pine Creek `example 3 <nbex_pine_creek3.html>`_
+   * Support Vector Classification `example <nbex_pine_creek4.html>`_
+
+Regarding Numerical Stability
+=============================
+
+After running many tests we can observe that most of the algorithms in this library are numerically stable. But not all! Problems are with FCLS and SVC. I didn't investigate in deep but here I present some observations and how to work around the problem.
+
+These problems are not critical and with a good Python configuration, thanks to Anaconda, we can pass over. With a MKL based Python distribution, if we run the Pine Creek example 2 many times, we observe a cyclic output from FCLS. And from one cycle to another (it exist 2 cycles for example 2), the rendering of the abundances maps is not the same. If we run the same example with a openBLAS based Python distribution the cycling disappear and the abundances maps stay the same at each run. I observed something similar with SVC but it's more complex to analyses.
+
+The solution is to avoid MKL and use openBLAS when running FCLS or SVC. This can be done easily with the new Anaconda version 2.5 (older public Anaconda versions are openBLAS only). To setup your environment to openBLAS see the article of Dr. Ilan Schnell on the Anaconda developer blog: 
+`anaconda-25-release-now-mkl-optimizations <https://www.continuum.io/blog/developer-blog/anaconda-25-release-now-mkl-optimizations/>`_
+
+Except for these two algorithms, MKL can be used without any problem.
+
+Documentation
+=============
+
+.. toctree::
+   :maxdepth: 2
+
+   introduction
+   installation
+   examples_front
+   abundance_maps
+   classification
+   detection
+   distance
+   eea
+   material_count
+   noise
+   sigproc
+   spectro
+   util
+   glossary
+   release_notes
+   links
+
+
+Indices and tables
+==================
+
+* :ref:`genindex`
+* :ref:`modindex`
+* :ref:`search`

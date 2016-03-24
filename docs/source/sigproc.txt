@@ -1,0 +1,15 @@
+.. automodule:: pysptools.sigproc
+
+Signal processing 
+******************
+
+Bilateral is a noise reduction function.
+
+.. seealso:: See the file :download:`test_pwc.py<../../pysptools/tests/test_pwc.py>` for an example.
+
+------------------------------
+
+Bilateral Filtering
+===================
+
+.. autofunction:: pysptools.sigproc.bilateral

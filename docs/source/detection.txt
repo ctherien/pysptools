@@ -1,0 +1,97 @@
+.. automodule:: pysptools.detection
+
+Detection
+*********
+
+This module supports the follwing detection algorithms. Each of these algorithms come in two flavors, as functions or as classes.
+
+* `Adaptive Cosin/coherent Estimator (ACE)`_
+* `Constrained Energy Minimization (CEM)`_
+* `Generalized Likelihood Ratio Test (GLRT)`_
+* `MatchedFilter`_
+* `Othogonal Subspace Projection (OSP)`_
+
+.. seealso:: See the file :download:`test_detect.py<../../pysptools/tests/test_detect.py>` for an example.
+
+
+Adaptive Cosin/coherent Estimator (ACE)
+=======================================
+
+Function
+--------
+.. autofunction:: pysptools.detection.detect.ACE
+
+
+------------------------------
+
+Class
+-----
+.. autoclass:: pysptools.detection.ACE
+    :members:
+
+
+Constrained Energy Minimization (CEM)
+=======================================
+
+Function
+--------
+.. autofunction:: pysptools.detection.detect.CEM
+
+
+------------------------------
+
+Class
+-----
+.. autoclass:: pysptools.detection.CEM
+    :members:
+
+
+Generalized Likelihood Ratio Test (GLRT)
+=========================================
+
+Function
+--------
+.. autofunction:: pysptools.detection.detect.GLRT
+
+
+------------------------------
+
+Class
+-----
+.. autoclass:: pysptools.detection.GLRT
+    :members:
+
+
+
+MatchedFilter
+===============
+
+Function
+--------
+.. autofunction:: pysptools.detection.detect.MatchedFilter
+
+
+------------------------------
+
+Class
+-----
+.. autoclass:: pysptools.detection.MatchedFilter
+    :members:
+
+
+
+Othogonal Subspace Projection (OSP)
+=====================================
+
+Function
+--------
+.. autofunction:: pysptools.detection.detect.OSP
+
+
+------------------------------
+
+Class
+-----
+.. autoclass:: pysptools.detection.OSP
+    :members:
+

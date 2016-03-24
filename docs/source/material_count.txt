@@ -1,0 +1,37 @@
+.. automodule:: pysptools.material_count
+
+Material Count
+**************
+
+This module supports the virtual dimensionality measure.
+
+.. seealso:: See the file :download:`test_vd.py<../../pysptools/tests/test_vd.py>` for an example.
+
+HSI Image Vitual Dimensionality Measure (HfcVd)
+====================================================
+Function
+--------
+
+.. autofunction:: pysptools.material_count.vd.HfcVd
+
+------------------------------
+
+Class
+------
+.. autoclass:: pysptools.material_count.HfcVd
+    :members:
+
+
+Hyperspectral Signal Subspace Identification by Minimum Error (HySime)
+=======================================================================
+Function
+--------
+
+.. autofunction:: pysptools.material_count.vd.HySime
+
+------------------------------
+
+Class
+------
+.. autoclass:: pysptools.material_count.HySime
+    :members:

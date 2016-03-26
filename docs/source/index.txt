@@ -29,6 +29,10 @@ What's New : version 0.13.5 (beta)
 
 It's mainly a maintenance version with a few fixes. Following is a list of the new features.
 
+* The project is now on gitub, and, as usual, the stable release is on pypi and sourceforge.
+
+* The project documentation is reorganized, tanks to Sasank Chilamkurthy.
+
 * A __str__ method is added to the abundance_maps, classification, detection and eea modules classes.
 
 * A new parameter 'mask' is added to the classify method of the classification module classes. And the same

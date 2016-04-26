@@ -119,12 +119,12 @@ def _display_end_members(U, utype, is_normalized, axes, suffix):
     import matplotlib.pyplot as plt
     if axes == None:
         axes = {}
-        axes['wavelength'] = [x+1 for x in range(E.shape[1])]
+        axes['wavelength'] = [x+1 for x in range(U.shape[1])]
         axes['x'] = 'Wavelength'
         axes['y'] = 'Brightness'
     else:
         if not('wavelength' in axes) or axes['wavelength'] == None:
-            axes['wavelength'] = [x+1 for x in range(E.shape[1])]
+            axes['wavelength'] = [x+1 for x in range(U.shape[1])]
         if not('x' in axes) or axes['x'] == None:
             axes['x'] = 'Wavelength'
         if not('y' in axes) or axes['y'] == None:

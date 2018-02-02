@@ -36,6 +36,7 @@ setup(name = "pysptools",
                   'pysptools/doc/hem': ['*'],
                   'pysptools/doc/pic': ['*'],
                   'pysptools/doc/smk': ['*'],
+                  'pysptools/doc/source': ['*'],
     			   'pysptools/eea': ['*.*']},
     long_description = """
 PySptools is a hyperspectral and spectral imaging library that provides spectral algorithms for the Python programming language. Specializations of the library are the endmembers extraction, unmixing process, supervised classification, target detection, noise reduction, convex hull removal and features extraction at spectrum level.

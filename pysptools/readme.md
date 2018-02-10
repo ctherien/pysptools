@@ -1,3 +1,8 @@
+PySptools v0.14.2
+=================
+
+Hyperspectral library for Python
+
 Presentation
 ============
 

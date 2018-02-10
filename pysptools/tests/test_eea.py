@@ -61,7 +61,7 @@ def ROI(data, path):
     r = util.ROIs(data.shape[0], data.shape[1])
     # Some roi
     r.add('Area', {'rec': (30,30,100,100)})
-    r.plot(path)
+    r.plot(path, colorMap='Accent')
     return r
 
 
@@ -133,7 +133,7 @@ def test_ATGP(data, wvl, mask, path):
     atgp.plot(path, axes=wvl, suffix='test1')
     atgp.plot(path, suffix='test2')
     U = U[[0,1],:]
-    test_amap(data, U, 'ATGP', path, mask, amaps='FCLS')
+    test_amap(data, U, 'ATGP', path, mask, amaps='UCLS')
 
 
 def test_FIPPI(data, wvl, mask, path):

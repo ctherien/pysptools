@@ -53,10 +53,11 @@ class ROIs(object):
               The class (or cluster) name.
 
             rois: `dictionary list`
-              Each parameter, a dictionary, represent a rectangle or a polygon. They use matrix coordinates.
-              For a rectangle: {'rec': (upper_left_line, upper_left_column, lower_right_line, lower_right_column)}
+              Each parameter, a dictionary, represent a rectangle, a polygon or a raw array. They use matrix coordinates.
+              For a raw array: {'raw': mask-array}, mask-array is a binary 2D array with the hypercube (x,y) dimensions.
+              For a rectangle: {'rec': (upper_left_line, upper_left_column, lower_right_line, lower_right_column)}.
               For a polygone: {'poly': ((l1,c1),(l2,c2), ...)}, **l** stand for line and **c** for column. The polygon don't need to be close.
-              You can define one or more rectangle and/or polygon for a same cluster.
+              You can define one or more raw, rectangle and/or polygon for a same cluster.
               The polygon and the rectangle must be well formed.
         """
         self._rois.append((id, rois))
@@ -95,6 +96,12 @@ class ROIs(object):
 
     def _post_to_mask(self, rois, id):
         for r in rois:
+            if 'raw' in r:
+                bin_mask = r['raw']
+                for x in range(self.mask.shape[0]):
+                    for y in range(self.mask.shape[1]):
+                        if bin_mask[x,y] > 0:
+                            self.mask[x,y] = id
             if 'rec' in r:
                 x1,y1,x2,y2 = r['rec']
                 for x in range(self.mask.shape[0]):
@@ -145,3 +152,6 @@ class ROIs(object):
         from pysptools.classification import Output
         plt = Output('ROIs')
         plt.plot(self.mask, self._n_clusters, labels=self.get_labels(), colorMap=colorMap, firstBlack=True, suffix=suffix)
+
+if __name__ == '__main__':
+    pass

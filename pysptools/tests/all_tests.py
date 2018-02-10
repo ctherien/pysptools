@@ -26,7 +26,8 @@ from __future__ import print_function
 
 import sys
 from pysptools.tests import test_cls, test_detect, test_dnoise, test_vd, test_hull, \
-	test_pwc, test_spectro, test_eea, test_SVC
+     test_pwc, test_spectro, test_eea, test_HyperSVC, test_skl, \
+     test_skl_multi_labels
 
 
 def all_tests():
@@ -34,52 +35,62 @@ def all_tests():
         print('====> testing test_cls')
         test_cls.tests()
     except Exception:
-        print('**** Error in test: test_cls')
+        print('************ Error in test: test_cls')
     try:
         print('====> testing test_detect')
         test_detect.tests()
     except Exception:
-        print('**** Error in test: test_detect')
+        print('************ Error in test: test_detect')
     try:
         print('====> testing test_dnoise')
         test_dnoise.tests()
     except Exception:
-        print('**** Error in test: test_dnoise')
+        print('************ Error in test: test_dnoise')
     try:
         print('====> testing test_vd')
         test_vd.tests()
     except Exception:
-        print('**** Error in test: test_vd')
+        print('************ Error in test: test_vd')
     try:
         print('====> testing test_hull')
         test_hull.tests()
     except Exception:
-        print('**** Error in test: test_hull')
+        print('************ Error in test: test_hull')
     try:
         print('====> testing test_kmeans')
         test_pwc.tests()
     except Exception:
-        print('**** Error in test: test_kmeans')
+        print('************ Error in test: test_kmeans')
     try:
         print('====> testing test_pwc')
         test_pwc.tests()
     except Exception:
-        print('**** Error in test: test_pwc')
+        print('************ Error in test: test_pwc')
     try:
         print('====> testing test_spectro')
         test_spectro.tests()
     except Exception:
-        print('**** Error in test: test_spectro')
+        print('************ Error in test: test_spectro')
     try:
         print('====> testing test_eea')
         test_eea.tests()
     except Exception:
-        print('**** Error in test: test_eea')
+        print('************ Error in test: test_eea')
     try:
-        print('====> testing test_SVC')
-        test_SVC.tests()
+        print('====> testing test_HyperSVC')
+        test_HyperSVC.tests()
     except Exception:
-        print('**** Error in test: test_SVC')
+        print('************ Error in test: test_HyperSVC')
+    try:
+        print('====> testing test_skl')
+        test_skl.tests()
+    except Exception:
+        print('************ Error in test: test_skl')
+    try:
+        print('====> testing test_skl_multi_labels')
+        test_skl_multi_labels.tests()
+    except Exception:
+        print('************ Error in test: test_skl_multi_labels')
 
 
 if __name__ == '__main__':

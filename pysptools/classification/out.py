@@ -23,17 +23,24 @@ import numpy as np
 
 
 class Output(object):
-    """ Add plot and display capacity to the classifiers classes.
+    """ Add plot and display functionality to the classifiers classes.
     """
 
     def __init__(self, label):
         self.label = label
 
+    def cm_dispatch(self, name):
+        from pysptools.classification._cm import datad
+        return datad[name]
+    
     def _custom_listed_color_map(self, name, N, firstBlack=False):
         """ add the black color in front of 'name' color """
         import matplotlib.cm as cm
         from matplotlib import colors
-        mp = cm.datad[name]
+        if name == 'jet':
+            mp = cm.datad[name]
+        else:
+            mp = self.cm_dispatch(name)            
         new_mp1 = {'blue': colors.makeMappingArray(N-1, mp['blue']),
                   'green': colors.makeMappingArray(N-1, mp['green']),
                   'red': colors.makeMappingArray(N-1, mp['red'])}

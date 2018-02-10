@@ -25,7 +25,7 @@ The following class is tested:
 
 import os
 import os.path as osp
-import pysptools.classification as cls
+import pysptools.sklearn as skl
 import pysptools.util as util
 
 
@@ -42,7 +42,7 @@ def tests():
     data, header = util.load_ENVI_file(data_file)
     #data = np.fliplr(data)
 
-    km = cls.KMeans()
+    km = skl.KMeans()
     km.predict(data, 5)
 #    km.plot(result_path, colorMap='jet')
     km.plot(result_path, interpolation=None, colorMap='jet')

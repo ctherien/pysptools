@@ -18,7 +18,7 @@
 # display.py - This file is part of the PySptools package.
 #
 
-
+import os.path as osp
 import numpy as np
 import matplotlib.pyplot as plt
 
@@ -98,21 +98,23 @@ def _linear_stretch(data, R, G, B):
     min_G = np.min(img[:,:,1])
     d_B = np.max(img[:,:,2])-np.min(img[:,:,2])
     min_B = np.min(img[:,:,2])
-    img1 = np.zeros((data.shape[0],data.shape[1],3), dtype=np.int8)
+    img1 = np.zeros((data.shape[0],data.shape[1],3), dtype=np.uint8)
     for i in range(data.shape[0]):
         for j in range(data.shape[1]):
-            img1[i,j] = (1-((img[i,j,0]-min_R)/d_R))*255, (1-((img[i,j,1]-min_G)/d_G))*255, (1-((img[i,j,2]-min_B)/d_B))*255
-    return img1
+            img1[i,j,0] = (1-((img[i,j,0]-min_R)/d_R))*255
+            img1[i,j,1] = (1-((img[i,j,1]-min_G)/d_G))*255
+            img1[i,j,2] = (1-((img[i,j,2]-min_B)/d_B))*255
+    return 255-img1
 
 if __name__ == '__main__':
-    import os.path as osp
+    import os
     import pysptools.util as util
-    data_path = '../data1'
-    project_path = '../'
-    result_path = osp.join(project_path, 'results')
+    home_path = os.environ['HOME']
+    source_path = osp.join(home_path, 'dev-data/data/data1_dis')
+    result_path = osp.join(home_path, 'results')
     sample = '92AV3C.hdr'
 
-    data_file = osp.join(data_path, sample)
+    data_file = osp.join(source_path, sample)
     data, info = util.load_ENVI_file(data_file)
 
     plot_linear_stretch(data, result_path, 102, 85, 18, '1')

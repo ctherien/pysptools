@@ -48,7 +48,7 @@ def convert2d(M):
     return np.reshape(M, (w*h, numBands))
 
 
-def convert3d(N, h, w, sigLast=True):
+def convert3d(M, h, w, sigLast=True):
     """
     Converts a 1D (N) or 2D matrix (p x N) or (N x p) to a 3D
     data cube (m x n x p) where N = m * n
@@ -73,7 +73,7 @@ def convert3d(N, h, w, sigLast=True):
     if M.ndim > 2:
         raise RuntimeError('in formating.convert2d,  M have {0} dimension(s), expected 1 or 2 dimensions'.format(M.ndim))
 
-    N = np.array(N)
+    N = np.array(M)
 
     if sigLast == False:
         if N.ndim == 1:

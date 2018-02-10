@@ -195,7 +195,7 @@ def _compress(vec, mask):
 
 class PPI(object):
     """
-    Performs the pixel purity index algorithm for endmember finding.
+    Performs the pixel purity index algorithm for endmembers finding.
     """
 
     def __init__(self):

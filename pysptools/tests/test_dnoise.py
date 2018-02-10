@@ -31,7 +31,7 @@ import os
 import os.path as osp
 import pysptools.util as util
 import pysptools.noise as ns
-import pysptools.classification as cls
+import pysptools.skl as skl
 
 
 def SavitzkyGolay_spectra_filter(data, path):
@@ -78,20 +78,20 @@ def MNF_reduce_component_2_noise_and_invert(data):
 def test_whiten(n_clusters, data, result_path):
     print('Testing whiten')
     wdata = whiten(data)
-    km = cls.KMeans()
+    km = skl.KMeans()
     km.predict(wdata, n_clusters)
     km.plot(result_path, colorMap='jet', suffix='whiten')
 
 def test_MNF(n_clusters, n_components, data, result_path):
     print('Testing MNF')
     tdata = MNF(data, n_components, result_path)
-    km = cls.KMeans()
+    km = skl.KMeans()
     km.predict(tdata, n_clusters)
     km.plot(result_path, colorMap='jet', suffix='MNF')
 
     print('Testing MNF with component 2 noise reduction')
     idata = MNF_reduce_component_2_noise_and_invert(data)
-    km = cls.KMeans()
+    km = skl.KMeans()
     km.predict(idata, n_clusters)
     km.plot(result_path, colorMap='jet', suffix='MNF_with_component_2_noise_reduction')
 
@@ -100,12 +100,12 @@ def test_SavitzkyGolay(n_clusters, data, result_path):
     print('Testing SavitzkyGolay bands filter')
 
     tdata = SavitzkyGolay_bands_filter(data, result_path)
-    km = cls.KMeans()
+    km = skl.KMeans()
     km.predict(tdata, n_clusters)
     km.plot(result_path, colorMap='jet', suffix='SG_bands_filter')
 
     tdata = SavitzkyGolay_spectra_filter(data, result_path)
-    km = cls.KMeans()
+    km = skl.KMeans()
     km.predict(tdata, n_clusters)
     km.plot(result_path, colorMap='jet', suffix='SG_spectra_filter')
 
@@ -123,7 +123,7 @@ def tests():
     data, header = util.load_ENVI_file(data_file)
 
     n_clusters = 5
-    km = cls.KMeans()
+    km = skl.KMeans()
     km.predict(data, n_clusters)
     km.plot(result_path, colorMap='jet', suffix='data')
 

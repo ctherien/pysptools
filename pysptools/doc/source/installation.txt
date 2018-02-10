@@ -1,0 +1,97 @@
+Downloading and Installing PySptools
+************************************
+
+PySptools can run under Python 2.7 and 3.5. It has been tested for these versions but can probably run under others Python versions.
+
+.. note:: The HSI cubes are, in general, large and the 64 bits version of Python is recommended.
+
+The latest release is available at these download sites:
+
+	* `pypi <https://pypi.python.org/pypi/pysptools>`_
+	* `sourceforge <http://sourceforge.net/projects/pysptools/>`_ 
+
+Manual installation
+===================
+
+To install download the sources, expand it in a directory and add the path of
+the pysptools-0.xx.x directory to the PYTHONPATH system variable.
+
+Distutils installation
+======================
+
+You can use Distutils. Expand the sources in a directory,
+go to the pysptools-0.xx.x directory and at the command prompt type 'python setup.py install'.
+To uninstall the library, you have to do it manually. Go to your python installation. In the
+Lib/site-packages folder simply removes the associated pysptools folder and files.
+
+Dependencies
+============
+
+    * Python 2.7 or 3.5, 3.6
+    * Numpy, required
+    * Scipy, required
+    * scikit-learn, required, version >= 0.18
+    * SPy, require, version >= 0.17
+    * Matplotlib, pytsptools 0.14.2 now execute on matplotlib 2.0.x and stay back compatible
+    * CVXOPT, optional, to run FCLS, version 1.1.8 
+    * IPython, optional, if you want to use the display feature
+
+The development environment
+===========================
+
+The library is developed on the linux platform with anaconda.
+
+* For Python 2.7: anaconda2 v4.2.0 with SPy 0.18, scikit-learn 0.18.1 and CVXOPT 1.1.8
+* For Python 3.5: anaconda3 v4.2.0 with SPy 0.18, scikit-learn 0.18.1 and CVXOPT 1.1.8
+
+PySptools 0.14.1 was tested with OpenBLAS on anaconda 4.2.0. PySptools execute on anaconda 4.3.1 with Python 3.6.
+
+Numerical Stability
+===================
+
+After running many tests we can observe that most of the algorithms in this library are numerically stable. But not all! Problems are with FCLS and SVC. I didn't investigate in deep but here I present some observations and how to work around the problem.
+
+These problems are not critical and with a good Python configuration, thanks to Anaconda, we can pass over. With a MKL based Python distribution, if we run the Pine Creek example 2 many times, we observe a cyclic output from FCLS. And from one cycle to another (it exist 2 cycles for example 2), the rendering of the abundances maps is not the same. If we run the same example with a OpenBLAS based Python distribution the cycling disappear and the abundances maps stay the same at each run. I observed something similar with SVC but it's more complex to analyses.
+
+The solution is to avoid MKL and use OpenBLAS when running FCLS. This can be done easily with the new Anaconda version 2.5 (older public Anaconda versions are OpenBLAS only). To setup your environment to OpenBLAS see the following documentation on the Anaconda site: 
+`Anaconda 2.5 Release - now with MKL Optimizations <https://www.continuum.io/blog/developer-blog/anaconda-25-release-now-mkl-optimizations>`_. Except for FCLS, MKL can be used without any problem.
+
+Here a recipe that I used with Anaconda 4.2.0::
+
+    # install nomkl plus numpy, scipy, numexpr and scikit-learn, all for OpenBLAS
+    conda install nomkl
+    # Note that cvxopt for OpenBLAS is not updated
+    # If it is already there, remove it
+    conda remove cvxopt
+    # Go to the conda site for cvxopt: https://anaconda.org/anaconda/cvxopt
+    # If, by example, you are Linux and Python 3.5, download linux-64/cvxopt-1.1.8-py35_0.tar.bz2
+    # In the download directory, type
+    conda install cvxopt-1.1.8-py35_0.tar.bz2
+    # And finally, but I'm not sure it's usefull
+    conda remove mkl mkl-service
+    # You done
+
+Release notes
+=============
+
+.. toctree::
+   :maxdepth: 2
+
+   release_notes
+
+Issues
+======
+
+This issue is not fixed (but is on my list):
+
+Hi,
+I found a small bug in pysptools but didn't want to sign up for github to create a new issue. 
+
+When using a mask in the extract method of any of the endmember extraction classes, the returned endmember indices are for the compressed array rather than the original array. I was exporting the indices to ENVI5 roi xml files and found the spectral profiles didn't match, but it took me awhile to find the bug.
+
+Cheers,
+Steve
+
+
+
+

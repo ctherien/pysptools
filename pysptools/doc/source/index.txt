@@ -1,0 +1,64 @@
+﻿.. PySptools documentation master file, created by
+   sphinx-quickstart on Sun Sep 29 09:27:46 2013.
+   You can adapt this file completely to your liking, but it should at least
+   contain the root `toctree` directive.
+
+.. meta::
+	:description: Python tools for hyperspectral imaging
+	:keywords: python, hyperspectral imaging, signal processing, library, software, endmembers, unmixing, pysptools, sam, sid, atgp, N-FINDR, NFINDR, spectroscopy, target detection, georessources, geoimaging, chemical imaging, pharmaceutical, pharma, minerals, spectral, remote sensing, hyperspectral drill core imaging
+
+Welcome to the PySptools Documentation
+**************************************
+
+Tools for hyperspectral imaging ::
+
+	Documentation at 2017-12-20.
+
+.. figure:: ./pic/pic_burner1.png
+   :scale: 100 %
+   :align: center
+   :alt: stacked abundance maps
+
+Hyperspectral imaging is used to **visualize chemistry**, the spatial relation between chemicals and the proportion of them. PySptools is a python module that implements spectral and hyperspectral algorithms. Specializations of the library are the endmembers extraction, unmixing process, supervised classification, target detection, noise reduction, convex hull removal and features extraction at spectrum level. The library is designed to be easy to use and almost all functionality has a plot function to save you time with the data analysis process. The actual sources of the algorithms are the Matlab Hyperspectral Toolbox of Isaac Gerg, the pwctools of M. A. Little, the Endmember Induction Algorithms toolbox (EIA), the HySime Matlab module of José Bioucas-Dias and José Nascimento and research papers. Starting with version 0.14.0, PySptools add a bridge to the scikit-learn library. You can download PySptools from the PySptools
+Project Page hosted by Sourceforge.net or from the pypi packages repository.
+
+`My personal web site <http://ctherien.netlify.com/>`_ 
+
+What's New : version 0.15.0 (development)
+=========================================
+
+The development version 0.15.0 run in a virtual Linux machine on the cloud. This version have an experimental module named **ml** (see the Machine Learning section). This module implement an interface to **XGBoost** and **LightGBM**. The interface is scikit-learn and PySptools friendly. The machine learning work very well but there is many glitches on the cross validation side and it will take time to fix. If you like hyper-parameters, you will be serve!
+
+* FIX: _linear_stretch() use uint8 instead of int8.
+
+Documentation
+=============
+
+.. toctree::
+   :maxdepth: 2
+
+   introduction
+   installation
+   examples_front
+   abundance_maps
+   classification
+   noise
+   detection
+   distance
+   eea
+   ml
+   material_count
+   sigproc
+   skl
+   spectro
+   util
+   glossary
+   links
+
+
+Indices and tables
+==================
+
+* :ref:`genindex`
+* :ref:`modindex`
+* :ref:`search`

@@ -49,7 +49,7 @@ def load_ENVI_file(file_name):
 
 def load_ENVI_spec_lib(file_name):
     """
-    Load a ENVI .sli file.
+    Load an ENVI.sli file.
 
     Parameters:
         file_name: `path string`
